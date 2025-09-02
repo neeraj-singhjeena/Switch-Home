@@ -1,13 +1,21 @@
 import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Section from "./components/Section";
+import Contact from "./components/Contact";
+import Service from "./components/Service";
+import Message from "./components/Message";
+import About from "./components/About";
 
 function App() {
   return (
     <>
       <Navbar />
-      <div className="container mt-5 text-center">
-        <h1 className="text-primary">Welcome to Switch Home 🚀</h1>
-        <p className="lead">Fully responsive navbar (Phone, Tablet, Laptop).</p>
-      </div>
+      <Home />
+      <Section />
+      <Contact />
+      <Service />
+      <Message />
+      <About />
     </>
   );
 }
