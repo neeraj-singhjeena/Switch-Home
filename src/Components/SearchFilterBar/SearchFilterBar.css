@@ -1,0 +1,271 @@
+/* SearchFilterBar.css */
+
+.search-filter-bar-container {
+  display: flex;
+  background-color: #fff;
+  border-radius: 8px; /* Slightly more rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* More subtle shadow */
+  padding: 8px 15px; /* Adjust padding to match image */
+  font-family: Arial, sans-serif;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 95%; /* Adjust as needed */
+  min-width: 320px; /* Prevent shrinking too much */
+}
+
+/* --- Search Input Section --- */
+.search-input-section {
+  display: flex;
+  align-items: center;
+  padding-right: 15px; /* Space before filter options */
+  flex-shrink: 0; /* Don't shrink the search part */
+}
+
+.search-icon.location-icon {
+  font-size: 1.1rem; /* Slightly smaller icon */
+  color: #e53935; /* Red color from image */
+  margin-right: 8px;
+}
+
+.search-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-label {
+  font-size: 0.75rem; /* Smaller "Search" label */
+  color: #999;
+  font-weight: normal; /* Match image */
+  line-height: 1; /* Adjust line height */
+}
+
+.location-display-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer; /* Indicate clickable */
+}
+
+.location-text, .location-placeholder {
+  font-size: 0.95rem; /* Match "London" text size */
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  padding-right: 20px; /* Space for clear icon */
+}
+
+.location-placeholder {
+  color: #888; /* Grey for placeholder */
+  font-weight: normal;
+}
+
+.caret-icon {
+  font-size: 0.7rem; /* Smaller caret */
+  margin-right: 5px;
+  color: #888;
+}
+
+.clear-location-icon {
+  position: absolute;
+  right: 0;
+  color: #ccc; /* Lighter grey for times icon */
+  cursor: pointer;
+  font-size: 0.8rem; /* Smaller times icon */
+  padding: 3px; /* Add some clickable area */
+  transition: color 0.2s ease-in-out;
+}
+
+.clear-location-icon:hover {
+  color: #999;
+}
+
+
+/* --- Filter Options Section --- */
+.filter-options-section {
+  display: flex;
+  flex-grow: 1; /* Allow filters to take available space */
+  justify-content: space-around; /* Distribute items evenly */
+  align-items: stretch; /* Stretch items vertically to match overall height */
+  margin-left: 10px; /* Space between search and filters */
+  border-left: 1px solid #eee; /* Subtle separator line */
+  padding-left: 10px; /* Padding after the separator */
+}
+
+.filter-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 5px 8px; /* Adjust padding to match compact look */
+  background: none; /* Make it look like a div, not a button */
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+  position: relative;
+  transition: background-color 0.2s ease-in-out;
+  flex-shrink: 0; /* Prevent individual filter options from shrinking too much */
+}
+
+.filter-option:hover {
+  background-color: #f5f5f5; /* Subtle hover effect */
+  border-radius: 4px; /* Slight rounding on hover */
+}
+
+.filter-option.active {
+  color: #007bff; /* Example active color */
+}
+
+/* Vertical separators between filter options */
+.filter-option:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 25%; /* Start midway */
+  height: 50%; /* Make it shorter than full height */
+  width: 1px;
+  background-color: #eee; /* Light grey separator */
+}
+
+.filter-icon {
+  font-size: 0.95rem; /* Smaller icon size for filters */
+  color: #666; /* Default icon color */
+  margin-bottom: 3px; /* Less space between icon and label */
+}
+
+.filter-option.active .filter-icon {
+  color: #007bff; /* Active icon color */
+}
+
+.filter-label {
+  font-size: 0.65rem; /* Smaller label size */
+  color: #555; /* Default label color */
+  white-space: nowrap; /* Keep labels on one line */
+  text-align: center;
+}
+
+.filter-option.active .filter-label {
+  color: #007bff; /* Active label color */
+}
+
+/* More Filters specific styling */
+.filter-option.more-filters .filter-icon {
+  color: #666; /* Default color for ellipsis */
+}
+.filter-option.more-filters.active .filter-icon {
+  color: #007bff;
+}
+
+/* More Filters Panel (example styling) */
+.more-filters-panel {
+  position: absolute; /* Or fixed, depending on desired behavior */
+  top: 100%; /* Position below the bar */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+  margin-top: 10px;
+}
+.more-filters-panel p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+.more-filters-panel button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.more-filters-panel button:hover {
+  background-color: #e0e0e0;
+}
+
+
+/* --- Responsiveness (Media Queries) --- */
+
+/* Mobile (default styles handle this well) */
+
+/* Tablet and larger screens: adjust spacing, potentially hide some labels */
+@media (max-width: 768px) {
+  .search-filter-bar-container {
+    flex-wrap: wrap; /* Allow the filters to wrap below the search bar */
+    padding: 10px;
+  }
+
+  .search-input-section {
+    width: 100%; /* Take full width on small screens */
+    padding-bottom: 10px; /* Space below search section */
+    border-bottom: 1px solid #eee; /* Separator for search and filters */
+    margin-bottom: 10px;
+    padding-right: 0;
+  }
+
+  .filter-options-section {
+    width: 100%; /* Take full width */
+    justify-content: space-between; /* Evenly space filters */
+    border-left: none; /* Remove left border when stacked */
+    padding-left: 0;
+  }
+
+  .filter-option {
+    flex: 1 1 auto; /* Allow items to grow/shrink based on space */
+    width: auto; /* Allow flexible width */
+    padding: 8px 5px; /* Adjust padding for smaller buttons */
+  }
+
+  .filter-option:not(:last-child)::after {
+    height: 70%; /* Make separators a bit taller on smaller screens if needed */
+    top: 15%;
+  }
+
+  /* Reduce font sizes for smaller screens if necessary */
+  .search-label { font-size: 0.7rem; }
+  .location-text, .location-placeholder { font-size: 0.9rem; }
+  .filter-icon { font-size: 0.9rem; }
+  .filter-label { font-size: 0.6rem; }
+}
+
+/* Small mobile devices (e.g., width < 480px) */
+@media (max-width: 480px) {
+  .filter-options-section {
+    flex-wrap: wrap; /* Filters wrap into multiple rows */
+    justify-content: center; /* Center items if they wrap */
+    gap: 8px 5px; /* Smaller gap */
+  }
+
+  .filter-option {
+    flex: 0 0 calc(33% - 10px); /* 3 items per row, accounting for gap */
+    max-width: calc(33% - 10px);
+    padding: 6px 3px;
+  }
+
+  .filter-option:not(:last-child)::after {
+    /* Adjust separator positioning for wrapped items if necessary */
+    /* You might need more complex logic or remove separators between wrapped rows */
+  }
+
+  .filter-option:nth-child(3n)::after { /* Remove separator for every 3rd item */
+    content: none;
+  }
+}
+
+/* Hide labels on very small screens for ultra-compact view */
+/* This is optional and depends on how compact you need it to be */
+/* @media (max-width: 380px) {
+  .filter-label {
+    display: none;
+  }
+  .filter-icon {
+    margin-bottom: 0;
+  }
+} */
