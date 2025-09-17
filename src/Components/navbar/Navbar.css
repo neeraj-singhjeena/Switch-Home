@@ -1,0 +1,302 @@
+/* Main container for the navbar */
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* Pushes logo left and links right */
+  align-items: center;
+  background-color: #e9e9e9; /* Light grey background from the image */
+  padding: 1rem 2rem; /* Adds some space on the top/bottom and left/right */
+  font-family: 'Helvetica', 'Arial', sans-serif; /* A common, clean font */
+}
+
+/* Styling for the "SwitchHome" logo */
+.navbar-logo {
+  font-size: 2.2rem; /* Makes the logo text bigger */
+  font-weight: bold;
+  color: #ff4800; /* The bright orange-red color */
+  text-decoration: none; /* Removes the underline from the link */
+  /* This text-shadow creates the glowing effect from your image */
+  text-shadow: 0 0 3px #ff4800;
+}
+
+/* Container for the navigation links */
+.navbar-menu {
+  list-style: none; /* Removes the default bullet points */
+  display: flex; /* Aligns the links in a row */
+  gap: 25px; /* Creates space between the links */
+  margin: 0;
+  padding: 0;
+}
+
+/* Styling for the individual links (Service, Contact us) */
+.navbar-menu a {
+  font-size: 1.1rem;
+  color: #ff4800; /* Same bright orange-red color */
+  text-decoration: none; /* Removes the underline */
+  text-shadow: 0 0 2px #ff4800; /* A more subtle glow for the links */
+  font-weight: 500;
+}
+
+/* Optional: Add a simple hover effect for interactivity */
+.navbar-menu a:hover {
+  text-decoration: underline;
+}
+/* Existing CSS is assumed to be here */
+
+/* Add the hamburger icon styles */
+.navbar-hamburger {
+  display: none; /* Hidden by default on large screens */
+  cursor: pointer;
+}
+
+.navbar-hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #ff4800;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Add the styles for the mobile menu */
+.navbar-menu-mobile {
+  display: none;
+  flex-direction: column;
+  background-color: #e9e9e9;
+  position: absolute;
+  top: 60px; /* Adjust based on navbar height */
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar-menu-mobile.is-active {
+  display: flex;
+}
+
+.navbar-menu-mobile a {
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #ff4800;
+}
+
+/* Media Query for mobile devices */
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    padding: 0.8rem 1.5rem; /* Adjust padding for smaller screens */
+  }
+
+  /* Hide the regular menu on small screens */
+  .navbar-menu {
+    display: none;
+  }
+
+  /* Show the hamburger icon on small screens */
+  .navbar-hamburger {
+    display: block;
+  }
+}
+/* Navbar.css - Base Styles for Desktop */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e9e9e9;
+  padding: 1rem 2rem;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  position: relative; /* Essential for positioning the mobile menu */
+}
+
+.navbar-logo {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #ff4800;
+  text-decoration: none;
+  text-shadow: 0 0 3px #ff4800;
+  z-index: 2; /* Ensures logo is above mobile menu */
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex; /* Horizontal on desktop */
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out; /* Smooth transition for mobile menu */
+}
+
+.navbar-menu a {
+  font-size: 1.1rem;
+  color: #ff4800;
+  text-decoration: none;
+  text-shadow: 0 0 2px #ff4800;
+  font-weight: 500;
+}
+
+.navbar-menu a:hover {
+  text-decoration: underline;
+}
+
+/* Hamburger icon styles (initially hidden) */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  z-index: 2; /* Ensures icon is above mobile menu */
+}
+
+.hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #ff4800;
+  transition: all 0.3s ease-in-out;
+}
+
+/* --- Media Queries for Mobile Compatibility --- */
+@media screen and (max-width: 768px) {
+  .navbar-menu {
+    /* Mobile menu styles */
+    display: none; /* Hide the full menu by default on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Position below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: #e9e9e9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  /* Show the mobile menu when it has the 'active' class */
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  /* Show the hamburger icon */
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-menu li {
+    padding: 0.5rem 0;
+  }
+
+  .navbar-menu a {
+    font-size: 1.2rem;
+    color: #ff4800;
+  }
+}/* Navbar.css - Base Styles for Desktop */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e9e9e9;
+  padding: 1rem 2rem;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  position: relative; /* Essential for positioning the mobile menu */
+}
+
+.navbar-logo {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #ff4800;
+  text-decoration: none;
+  text-shadow: 0 0 3px #ff4800;
+  z-index: 2; /* Ensures logo is above mobile menu */
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex; /* Horizontal on desktop */
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out; /* Smooth transition for mobile menu */
+}
+
+.navbar-menu a {
+  font-size: 1.1rem;
+  color: #ff4800;
+  text-decoration: none;
+  text-shadow: 0 0 2px #ff4800;
+  font-weight: 500;
+}
+
+.navbar-menu a:hover {
+  text-decoration: underline;
+}
+
+/* Hamburger icon styles (initially hidden) */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  z-index: 2; /* Ensures icon is above mobile menu */
+}
+
+.hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #ff4800;
+  transition: all 0.3s ease-in-out;
+}
+
+/* --- Media Queries for Mobile Compatibility --- */
+@media screen and (max-width: 768px) {
+  .navbar-menu {
+    /* Mobile menu styles */
+    display: none; /* Hide the full menu by default on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Position below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: #e9e9e9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  /* Show the mobile menu when it has the 'active' class */
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  /* Show the hamburger icon */
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-menu li {
+    padding: 0.5rem 0;
+  }
+
+  .navbar-menu a {
+    font-size: 1.2rem;
+    color: #ff4800;
+  }
+}
+/* Styling for the Login/Signup button */
+.login-signup-btn {
+  background-color: #ff4800; /* A bright orange/red background */
+  color: white; /* White text color for contrast */
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px; /* Adjust padding for size */
+  border: none; /* Removes the default button border */
+  border-radius: 20px; /* Creates a pill-shaped button */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  text-shadow: 0 0 2px #ff4800; /* Optional: A subtle glow for the text */
+}
+
+/* Hover effect for interactivity */
+.login-signup-btn:hover {
+  background-color: #e63e00; /* A slightly darker shade on hover */
+}
