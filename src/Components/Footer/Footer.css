@@ -1,0 +1,108 @@
+.footer {
+  background: #f5f5f5;
+  color: #333;
+  font-family: "Segoe UI", sans-serif;
+  position: relative;
+  padding-top: 30px;
+}
+
+/* Top Logos */
+.footer-logos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  flex-wrap: wrap;
+}
+
+.footer-logos img {
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Footer Columns */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+  gap: 30px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-col h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer-col p, 
+.footer-col li {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-col li {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-col li:hover {
+  color: #ff6600;
+}
+
+/* Newsletter */
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.newsletter-form button {
+  padding: 8px 15px;
+  background: #ff6600;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: #e05500;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  padding: 20px 10px;
+  border-top: 1px solid #ddd;
+}
+
+/* Skyline Background */
+.footer-skyline {
+  background: url("https://i.ibb.co/vZqk19V/skyline.png") repeat-x bottom;
+  height: 80px;
+  margin-top: -5px;
+}
