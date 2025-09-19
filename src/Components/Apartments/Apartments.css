@@ -1,0 +1,130 @@
+.apartments-container {
+  display: flex;
+  gap: 32px;
+  padding: 32px 0;
+  min-height: 500px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.apartments-list {
+  flex: 1.2;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 24px;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.apartment-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.apartment-item:last-child {
+  border-bottom: none;
+}
+
+.apartment-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.apartment-info {
+  flex: 1;
+}
+
+.apartment-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.apartment-location {
+  font-size: 0.95rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+.apartment-price {
+  font-size: 1rem;
+  color: #007bff;
+  margin-top: 6px;
+}
+
+/* --- Map Section --- */
+.apartments-map {
+  flex: 1.8;
+  background: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Example for popup image on map marker click */
+.map-popup-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -110%);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  padding: 16px;
+  z-index: 100;
+  width: 260px;
+  text-align: center;
+  animation: fadeIn 0.2s;
+}
+
+.map-popup-image img {
+  width: 220px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.map-popup-image .popup-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.map-popup-image .popup-location {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -120%);}
+  to { opacity: 1; transform: translate(-50%, -110%);}
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .apartments-container {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .apartments-list, .apartments-map {
+    max-height: none;
+    min-height: 300px;
+  }
+}

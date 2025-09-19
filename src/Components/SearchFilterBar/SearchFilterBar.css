@@ -1,30 +1,35 @@
-/* SearchFilterBar.css */
-
 .search-filter-bar-container {
+  background: linear-gradient(135deg, #f8fafc 70%, #e3f0ff 100%);
+  border-radius: 22px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.16);
+  padding: 36px 44px;
+  max-width: 600px;
+  margin: 180px;
   display: flex;
-  background-color: #fff;
-  border-radius: 8px; /* Slightly more rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* More subtle shadow */
-  padding: 8px 15px; /* Adjust padding to match image */
-  font-family: Arial, sans-serif;
-  align-items: center;
-  margin: 20px auto;
-  max-width: 95%; /* Adjust as needed */
-  min-width: 320px; /* Prevent shrinking too much */
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  z-index: 3;
+  transition: box-shadow 0.2s;
 }
 
-/* --- Search Input Section --- */
+.search-filter-bar-container:hover {
+  box-shadow: 0 16px 48px rgba(0, 123, 255, 0.18);
+}
+
 .search-input-section {
   display: flex;
   align-items: center;
-  padding-right: 15px; /* Space before filter options */
-  flex-shrink: 0; /* Don't shrink the search part */
+  padding-right: 32px;
+  flex-shrink: 0;
+  margin-bottom: 18px;
 }
 
 .search-icon.location-icon {
-  font-size: 1.1rem; /* Slightly smaller icon */
-  color: #e53935; /* Red color from image */
-  margin-right: 8px;
+  font-size: 1.35rem;
+  color: #007bff;
+  margin-right: 14px;
+  filter: drop-shadow(0 1px 2px #e3f0ff);
 }
 
 .search-text-group {
@@ -33,63 +38,113 @@
 }
 
 .search-label {
-  font-size: 0.75rem; /* Smaller "Search" label */
-  color: #999;
-  font-weight: normal; /* Match image */
-  line-height: 1; /* Adjust line height */
+  font-size: 0.95rem;
+  color: #6c757d;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  margin-bottom: 2px;
 }
 
 .location-display-wrapper {
   display: flex;
   align-items: center;
   position: relative;
-  cursor: pointer; /* Indicate clickable */
+  cursor: pointer;
 }
 
 .location-text, .location-placeholder {
-  font-size: 0.95rem; /* Match "London" text size */
-  font-weight: bold;
-  color: #333;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #222;
   display: flex;
   align-items: center;
-  padding-right: 20px; /* Space for clear icon */
+  padding-right: 26px;
+  background: transparent;
+  border: none;
+  outline: none;
+  transition: color 0.2s;
+  border-radius: 6px;
+}
+
+.location-text:focus {
+  color: #007bff;
+  background: #e3f0ff;
 }
 
 .location-placeholder {
-  color: #888; /* Grey for placeholder */
-  font-weight: normal;
+  color: #bbb;
+  font-weight: 500;
 }
 
 .caret-icon {
-  font-size: 0.7rem; /* Smaller caret */
-  margin-right: 5px;
-  color: #888;
+  font-size: 1rem;
+  margin-right: 8px;
+  color: #007bff;
 }
 
 .clear-location-icon {
   position: absolute;
   right: 0;
-  color: #ccc; /* Lighter grey for times icon */
+  color: #bbb;
   cursor: pointer;
-  font-size: 0.8rem; /* Smaller times icon */
-  padding: 3px; /* Add some clickable area */
-  transition: color 0.2s ease-in-out;
+  font-size: 1.1rem;
+  padding: 3px;
+  transition: color 0.2s;
 }
 
 .clear-location-icon:hover {
-  color: #999;
+  color: #007bff;
 }
 
+/* Location dropdown styling */
+.location-dropdown {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,123,255,0.10);
+  z-index: 100;
+  max-height: 220px;
+  overflow-y: auto;
+  margin-top: 8px;
+  animation: fadeIn 0.18s;
+}
+
+.location-dropdown div {
+  padding: 12px 22px;
+  cursor: pointer;
+  border-bottom: 1px solid #f5f5f5;
+  transition: background 0.15s, color 0.15s;
+  font-size: 1rem;
+}
+
+.location-dropdown div:last-child {
+  border-bottom: none;
+}
+
+.location-dropdown div:hover {
+  background: #e3f0ff;
+  color: #007bff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px);}
+  to { opacity: 1; transform: translateY(0);}
+}
 
 /* --- Filter Options Section --- */
 .filter-options-section {
   display: flex;
-  flex-grow: 1; /* Allow filters to take available space */
-  justify-content: space-around; /* Distribute items evenly */
-  align-items: stretch; /* Stretch items vertically to match overall height */
-  margin-left: 10px; /* Space between search and filters */
-  border-left: 1px solid #eee; /* Subtle separator line */
-  padding-left: 10px; /* Padding after the separator */
+  flex-wrap: wrap;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-left: 0;
+  border-left: none;
+  padding-left: 0;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .filter-option {
@@ -98,61 +153,93 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding: 5px 8px; /* Adjust padding to match compact look */
-  background: none; /* Make it look like a div, not a button */
+  padding: 14px 18px;
+  background: linear-gradient(180deg, #f8fafc 80%, #e3f0ff 100%);
   border: none;
   font-family: inherit;
   color: inherit;
   outline: none;
   position: relative;
-  transition: background-color 0.2s ease-in-out;
-  flex-shrink: 0; /* Prevent individual filter options from shrinking too much */
+  border-radius: 10px;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  min-width: 120px;
+  max-width: 180px;
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+
+.filter-option.more-filters {
+  min-width: 120px;
+  max-width: 140px;
+  margin-bottom: 0;
 }
 
 .filter-option:hover {
-  background-color: #f5f5f5; /* Subtle hover effect */
-  border-radius: 4px; /* Slight rounding on hover */
+  background: #e3f0ff;
+  box-shadow: 0 4px 16px rgba(0,123,255,0.12);
+  transform: translateY(-2px) scale(1.04);
 }
 
 .filter-option.active {
-  color: #007bff; /* Example active color */
-}
-
-/* Vertical separators between filter options */
-.filter-option:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 25%; /* Start midway */
-  height: 50%; /* Make it shorter than full height */
-  width: 1px;
-  background-color: #eee; /* Light grey separator */
+  color: #007bff;
+  background: #e6f0ff;
+  box-shadow: 0 4px 16px rgba(0,123,255,0.18);
 }
 
 .filter-icon {
-  font-size: 0.95rem; /* Smaller icon size for filters */
-  color: #666; /* Default icon color */
-  margin-bottom: 3px; /* Less space between icon and label */
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 6px;
+  transition: color 0.18s;
 }
 
 .filter-option.active .filter-icon {
-  color: #007bff; /* Active icon color */
+  color: #007bff;
 }
 
 .filter-label {
-  font-size: 0.65rem; /* Smaller label size */
-  color: #555; /* Default label color */
-  white-space: nowrap; /* Keep labels on one line */
+  font-size: 0.85rem;
+  color: #555;
+  white-space: nowrap;
   text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 
 .filter-option.active .filter-label {
-  color: #007bff; /* Active label color */
+  color: #007bff;
+}
+
+/* Input and select inside filter options */
+.filter-option input,
+.filter-option select {
+  margin-top: 8px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid #e3e3e3;
+  font-size: 1rem;
+  background: #f8fafc;
+  color: #222;
+  outline: none;
+  width: 70px;
+  transition: border-color 0.18s;
+  box-sizing: border-box;
+}
+
+.filter-option input:focus,
+.filter-option select:focus {
+  border-color: #007bff;
+  background: #e3f0ff;
+}
+
+.filter-option select {
+  width: 100px;
 }
 
 /* More Filters specific styling */
 .filter-option.more-filters .filter-icon {
-  color: #666; /* Default color for ellipsis */
+  color: #666;
 }
 .filter-option.more-filters.active .filter-icon {
   color: #007bff;
@@ -160,112 +247,122 @@
 
 /* More Filters Panel (example styling) */
 .more-filters-panel {
-  position: absolute; /* Or fixed, depending on desired behavior */
-  top: 100%; /* Position below the bar */
+  position: absolute;
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 123, 255, 0.18);
+  padding: 24px;
   z-index: 1000;
-  width: 90%;
-  max-width: 400px;
-  margin-top: 10px;
+  width: 95%;
+  max-width: 420px;
+  margin-top: 16px;
 }
 .more-filters-panel p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #555;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 .more-filters-panel button {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  padding: 8px 15px;
-  border-radius: 5px;
+  background-color: #e3f0ff;
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 10px 18px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 600;
+  transition: background 0.18s, color 0.18s;
 }
 .more-filters-panel button:hover {
-  background-color: #e0e0e0;
+  background-color: #007bff;
+  color: #fff;
 }
-
 
 /* --- Responsiveness (Media Queries) --- */
-
-/* Mobile (default styles handle this well) */
-
-/* Tablet and larger screens: adjust spacing, potentially hide some labels */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .search-filter-bar-container {
-    flex-wrap: wrap; /* Allow the filters to wrap below the search bar */
-    padding: 10px;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 99vw;
+    padding: 16px;
+    margin: 18px auto 18px auto;
   }
-
-  .search-input-section {
-    width: 100%; /* Take full width on small screens */
-    padding-bottom: 10px; /* Space below search section */
-    border-bottom: 1px solid #eee; /* Separator for search and filters */
-    margin-bottom: 10px;
-    padding-right: 0;
-  }
-
   .filter-options-section {
-    width: 100%; /* Take full width */
-    justify-content: space-between; /* Evenly space filters */
-    border-left: none; /* Remove left border when stacked */
+    margin-left: 0;
+    border-left: none;
     padding-left: 0;
+    gap: 8px;
   }
-
-  .filter-option {
-    flex: 1 1 auto; /* Allow items to grow/shrink based on space */
-    width: auto; /* Allow flexible width */
-    padding: 8px 5px; /* Adjust padding for smaller buttons */
-  }
-
-  .filter-option:not(:last-child)::after {
-    height: 70%; /* Make separators a bit taller on smaller screens if needed */
-    top: 15%;
-  }
-
-  /* Reduce font sizes for smaller screens if necessary */
-  .search-label { font-size: 0.7rem; }
-  .location-text, .location-placeholder { font-size: 0.9rem; }
-  .filter-icon { font-size: 0.9rem; }
-  .filter-label { font-size: 0.6rem; }
 }
 
-/* Small mobile devices (e.g., width < 480px) */
-@media (max-width: 480px) {
+@media (max-width: 700px) {
   .filter-options-section {
-    flex-wrap: wrap; /* Filters wrap into multiple rows */
-    justify-content: center; /* Center items if they wrap */
-    gap: 8px 5px; /* Smaller gap */
+    flex-wrap: wrap;
+    gap: 10px 6px;
+    justify-content: center;
   }
-
   .filter-option {
-    flex: 0 0 calc(33% - 10px); /* 3 items per row, accounting for gap */
-    max-width: calc(33% - 10px);
-    padding: 6px 3px;
+    flex: 1 1 140px;
+    min-width: 120px;
+    max-width: 100%;
+    padding: 10px 4px;
   }
+}
 
-  .filter-option:not(:last-child)::after {
-    /* Adjust separator positioning for wrapped items if necessary */
-    /* You might need more complex logic or remove separators between wrapped rows */
+@media (max-width: 600px) {
+  .search-filter-bar-container {
+    padding: 8px;
+    max-width: 99vw;
+    margin: 12px auto 12px auto;
+    flex-direction: column;
+    align-items: stretch;
   }
+  .filter-options-section {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 6px;
+    padding-left: 0;
+    margin-left: 0;
+    border-left: none;
+  }
+  .filter-option {
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    padding: 10px 4px;
+  }
+}
 
-  .filter-option:nth-child(3n)::after { /* Remove separator for every 3rd item */
-    content: none;
+@media (max-width: 400px) {
+  .search-label,
+  .filter-label {
+    font-size: 0.7rem;
+  }
+  .location-text, .location-placeholder {
+    font-size: 0.95rem;
+  }
+  .filter-icon {
+    font-size: 1rem;
   }
 }
 
 /* Hide labels on very small screens for ultra-compact view */
-/* This is optional and depends on how compact you need it to be */
-/* @media (max-width: 380px) {
+/* Optional: Uncomment if you want to hide labels on tiny screens */
+/*
+@media (max-width: 380px) {
   .filter-label {
     display: none;
   }
   .filter-icon {
     margin-bottom: 0;
   }
-} */
+}
+*/
+
+/* End with radius filter styling */
+.filter-option:first-child {
+  box-shadow: 0 0 0 2px #e3f0ff;
+  border: 1px solid #e3f0ff;
+}
